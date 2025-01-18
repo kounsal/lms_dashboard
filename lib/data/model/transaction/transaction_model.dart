@@ -91,7 +91,7 @@ class Transaction {
         transaction.courseDetails =
         await courseService.getCourseContent(transaction.courseId!);
       } catch (e) {
-        print("Failed to fetch course content for courseId: ${transaction.courseId}");
+        // print("Failed to fetch course content for courseId: ${transaction.courseId}");
       }
     }
     return transaction;

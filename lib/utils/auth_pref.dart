@@ -12,7 +12,7 @@ class AuthPref {
   static Future<String?> getToken() async {
     final prefs = await SharedPreferences.getInstance();
     final token = prefs.getString(_tokenKey);
-    print("Retrieved token: $token");
+    // print("Retrieved token: $token");
     return token;
   }
 

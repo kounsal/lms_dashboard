@@ -22,17 +22,6 @@ class CourseView extends StatelessWidget {
               ),
             ),
             SizedBox(height: 20),
-            // Search bar
-            // TextField(
-            //   decoration: InputDecoration(
-            //     hintText: 'Search by title or description',
-            //     prefixIcon: Icon(Icons.search),
-            //     border: OutlineInputBorder(
-            //       borderRadius: BorderRadius.circular(8),
-            //     ),
-            //   ),
-            //   onChanged: controller.filterCourses,
-            // ),
             SizedBox(height: 20),
             // Header Row
             Container(

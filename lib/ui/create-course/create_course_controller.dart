@@ -6,7 +6,6 @@ class CreateCourseController extends GetxController {
   final CourseService _courseService = CourseService();
   final CourseController _courseController = Get.find<CourseController>();
 
-  // Fields
   var title = ''.obs;
   var description = ''.obs;
   var price = 0.0.obs;
@@ -70,7 +69,7 @@ class CreateCourseController extends GetxController {
 
   // Methods
   void createCourse() async {
-    if (!validateInputs()) return;  // Exit if validation fails
+    if (!validateInputs()) return;
 
     try {
       isLoading.value = true;
