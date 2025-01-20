@@ -69,7 +69,7 @@ class CategoryPage extends StatelessWidget {
                                 IconButton(
                                   icon: Icon(Icons.delete, color: Colors.red),
                                   onPressed: () {
-                                    // Handle delete action
+                                    categoryController.deleteCategory(category.id);
                                   },
                                 ),
                               ],
@@ -176,6 +176,7 @@ class CategoryPage extends StatelessWidget {
           );
         }
       }),
+
     );
   }
 }

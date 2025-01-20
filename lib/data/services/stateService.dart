@@ -21,7 +21,7 @@ class StateService {
           },
         ),
       );
-      if (response.statusCode == 200) {
+      if (response.statusCode == 201) {
         return StateModel.fromJson(response.data);
       } else {
         throw Exception('Failed to add state');
@@ -31,7 +31,6 @@ class StateService {
     }
   }
 
-  // Get state by ID
   Future<StateModel> getStateById(String stateId) async {
     try {
       String? token = await AuthPref.getToken();
@@ -56,7 +55,6 @@ class StateService {
     }
   }
 
-  // Get all states
   Future<List<StateModel>> getAllStates() async {
     try {
       String? token = await AuthPref.getToken();
@@ -81,7 +79,6 @@ class StateService {
     }
   }
 
-  // Delete state by ID
   Future<void> deleteState(String stateId) async {
     try {
       String? token = await AuthPref.getToken();

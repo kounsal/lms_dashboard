@@ -35,14 +35,14 @@ class CollegeListPage extends StatelessWidget {
                       // color: Colors.blueAccent,
                     ),
                   ),
-                  Align(
-                    alignment: Alignment.topRight,
-                    child: IconButton(
-                      onPressed: () => collegeController.addCollege(context),
-                      color: Colors.teal,
-                      icon: Icon(Icons.add),
-                    ),
-                  ),
+                  // Align(
+                  //   alignment: Alignment.topRight,
+                  //   child: IconButton(
+                  //     onPressed: () => collegeController.addCollege(context),
+                  //     color: Colors.teal,
+                  //     icon: Icon(Icons.add),
+                  //   ),
+                  // ),
                 ],
               ),
             ),
@@ -91,9 +91,9 @@ class CollegeListPage extends StatelessWidget {
                           ),
                           // Trailing Icon for navigation
                           IconButton(
-                            icon: Icon(Icons.arrow_forward_ios, color: Colors.blueAccent),
+                            icon: Icon(Icons.delete, color: Colors.red),
                             onPressed: () {
-                              // Handle navigation or action here
+                              collegeController.deleteCollege(college.id!);
                             },
                           ),
                         ],
@@ -106,6 +106,13 @@ class CollegeListPage extends StatelessWidget {
           ],
         );
       }),
+      floatingActionButton: FloatingActionButton(
+
+              onPressed: () => collegeController.addCollege(context),
+
+        backgroundColor: Colors.green.withOpacity(0.6),
+        child: Icon(Icons.add),
+      ),
     );
   }
 }

@@ -132,5 +132,18 @@ print("selectedState ${selectedState?.toJson()}");
       onCancel: () => Get.back(),
     );
   }
+
+  Future<void> deleteCollege(String id) async {
+    try {
+      isLoading(true);
+      await CollegeService().deleteCollege(id);
+      colleges.removeWhere((college) => college.id == id);
+      Get.snackbar('Success', 'College deleted successfully');
+    } catch (e) {
+      Get.snackbar('Error', 'Failed to delete college: $e');
+    } finally {
+      isLoading(false);
+    }
+  }
 }
 

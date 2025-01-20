@@ -33,4 +33,17 @@ class CategoryController extends GetxController {
       isLoading(false);
     }
   }
+
+  Future<void> deleteCategory(String id) async {
+    try {
+      isLoading(true);
+      await _categoryService.deleteCategory(id);
+      categories.removeWhere((college) => college.id == id);
+      Get.snackbar('Success', 'College deleted successfully');
+    } catch (e) {
+      Get.snackbar('Error', 'Failed to delete college: $e');
+    } finally {
+      isLoading(false);
+    }
+  }
 }

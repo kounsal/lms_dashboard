@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:lms_admin/data/model/state/state_model.dart';
+import 'package:lms_admin/data/services/stateService.dart';
 import 'package:lms_admin/ui/all_state/all_state_controller.dart';
 
 class AllStateView extends StatelessWidget {
@@ -97,6 +99,7 @@ class AllStateView extends StatelessWidget {
                             child: IconButton(
                               icon: Icon(Icons.delete, color: Colors.red),
                               onPressed: () {
+                                stateController.deleteState( state.id!);
                               },
                             ),
                           ),
@@ -110,6 +113,93 @@ class AllStateView extends StatelessWidget {
           ],
         );
       }),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          _showAddStateDialog(context, stateController);
+        },
+        backgroundColor: Colors.green.withOpacity(0.6),
+        child: Icon(Icons.add),
+      ),
+    );
+  }
+
+  void _showAddStateDialog(BuildContext context, AllStateController stateController) {
+    final nameController = TextEditingController();
+    final codeController = TextEditingController();
+    bool isActive = false;
+
+    showDialog(
+      context: context,
+      builder: (context) {
+        return StatefulBuilder(
+          builder: (context, setState) {
+            return AlertDialog(
+              title: Text('Add State'),
+              content: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  TextField(
+                    controller: nameController,
+                    decoration: InputDecoration(labelText: 'Name'),
+                  ),
+                  TextField(
+                    controller: codeController,
+                    decoration: InputDecoration(labelText: 'Code'),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text('Active Status'),
+                      Switch(
+                        value: isActive,
+                        onChanged: (value) {
+                          setState(() {
+                            isActive = value;
+                          });
+                        },
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(context),
+                  child: Text('Cancel'),
+                ),
+                TextButton(
+                  onPressed: () async {
+                    final name = nameController.text.trim();
+                    final code = codeController.text.trim();
+
+                    if (name.isEmpty || code.isEmpty) {
+                      Get.snackbar('Error', 'Please fill in all fields');
+                      return;
+                    }
+
+                    final newState = StateModel(
+                      name: name,
+                      code: code,
+                      status: isActive,
+                    );
+
+                    try {
+                      final addedState = await StateService().addState(newState);
+                      stateController.states.add(addedState);
+                      Navigator.pop(context);
+                      Get.snackbar('Success', 'State added successfully');
+                    } catch (e) {
+                      Navigator.pop(context);
+                      Get.snackbar('Error', 'Failed to add state: $e');
+                    }
+                  },
+                  child: Text('Add'),
+                ),
+              ],
+            );
+          },
+        );
+      },
     );
   }
 }
