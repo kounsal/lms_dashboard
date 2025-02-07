@@ -12,8 +12,8 @@ class NetworkModule {
     dio = Dio(
         BaseOptions(
           baseUrl: 'https://lms-backend-gc2i.onrender.com/api',
-          connectTimeout: Duration(milliseconds: 5000),
-          receiveTimeout: Duration(milliseconds: 3000),
+          // connectTimeout: Duration(milliseconds: 5000),
+          // receiveTimeout: Duration(milliseconds: 3000),
           headers: {
             'Content-Type': 'application/json',
           },
