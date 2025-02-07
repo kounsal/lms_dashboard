@@ -83,6 +83,12 @@ class DashboardView extends StatelessWidget {
                   isSelected: controller.selectedIndex.value == 10,
                   onTap: () => controller.onItemTapped(10),
                 )),
+                 Obx(() => buildNavigationItem(
+                  icon: Icons.add_chart,
+                  label: 'Create Exam',
+                  isSelected: controller.selectedIndex.value == 11,
+                  onTap: () => controller.onItemTapped(11),
+                )),
               ],
             ),
           ),
