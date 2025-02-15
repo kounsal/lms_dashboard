@@ -372,7 +372,7 @@ class CreateCourseView extends StatelessWidget {
                                                                         topicIndex]
                                                                     ['lessons']
                                                                 [lessonIndex][
-                                                            'lessonUrl'] = value,
+                                                            'content'] = value,
                                                     decoration: InputDecoration(
                                                         labelText:
                                                             'Lesson URL'),

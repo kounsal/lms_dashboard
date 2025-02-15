@@ -121,7 +121,7 @@ void createCourse() async {
         "totalDuration": topic["totalDuration"], // Ensure correct format hh:mm:ss
         "lessons": topic["lessons"].map((lesson) => {
           "title": lesson["title"],
-          "lessonUrl": lesson["lessonUrl"],
+          "content": lesson["content"],
           "duration": lesson["duration"], 
           "isComplete": lesson["isComplete"],
           "type": lesson["type"],

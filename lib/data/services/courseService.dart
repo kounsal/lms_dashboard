@@ -80,6 +80,7 @@ class CourseService {
 
       if (response.statusCode == 201) {
         print("Course created successfully");
+        print("response $courseData");
       } else {
         throw Exception("Failed to create course");
       }
