@@ -10,13 +10,13 @@ class SplashView extends StatelessWidget {
     return Scaffold(
       body: Container(
         color: Colors.green.withOpacity(0.4),
-        child: Center(
+        child: const Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Icon(Icons.school, size: 100, color: Colors.white),
-              const SizedBox(height: 20),
-              const Text(
+          SizedBox(height: 20),
+           Text(
                 'LMS Admin',
                 style: TextStyle(
                   fontSize: 24,
@@ -24,8 +24,8 @@ class SplashView extends StatelessWidget {
                   color: Colors.white,
                 ),
               ),
-              const SizedBox(height: 20),
-              const CircularProgressIndicator(
+              SizedBox(height: 20),
+           CircularProgressIndicator(
                 valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
               ),
             ],

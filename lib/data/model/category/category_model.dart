@@ -43,8 +43,17 @@ class CategoryModel {
   Future<void> fetchColleges(CollegeService collegeService) async {
     colleges = [];
     for (String collegeId in collegeIds) {
-      CollegeModel college = await collegeService.getCollegeById(collegeId);
-      colleges.add(college);
+        try{
+          CollegeModel college = await collegeService.getCollegeById(collegeId);
+          colleges.add(college);
+        }
+        catch(e){
+
+          print("Error fetching college: $e");
+        }
+ 
     }
   }
+
+
 }

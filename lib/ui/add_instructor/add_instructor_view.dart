@@ -41,25 +41,25 @@ class AddInstructorView extends StatelessWidget {
                 children: [
                   // Sign-Up Section
                   Expanded(
-                    child: _buildCard(
+                    child: buildCard(
                       title: 'Sign Up Details',
                       children: [
-                        _buildTextField('Email', emailController),
-                        _buildTextField('Password', passwordController, obscureText: true),
+                        buildTextField('Email', emailController),
+                        buildTextField('Password', passwordController, obscureText: true),
                       ],
                     ),
                   ),
                   const SizedBox(width: 20),
                   // Instructor Info Section
                   Expanded(
-                    child: _buildCard(
+                    child: buildCard(
                       title: 'Instructor Info',
                       children: [
-                        _buildTextField('Name', nameController),
-                        _buildTextField('Biography', biographyController),
+                        buildTextField('Name', nameController),
+                        buildTextField('Biography', biographyController),
                         // _buildTextField('Avatar URL', avatarController),
-                        _buildTextField('Phone', phoneController),
-                        _buildTextField('State', stateController),
+                        buildTextField('Phone', phoneController),
+                        buildTextField('State', stateController),
                       ],
                     ),
                   ),
@@ -106,7 +106,7 @@ class AddInstructorView extends StatelessWidget {
   }
 
   /// Card Widget with Title
-  Widget _buildCard({required String title, required List<Widget> children}) {
+  Widget buildCard({required String title, required List<Widget> children}) {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
@@ -137,7 +137,7 @@ class AddInstructorView extends StatelessWidget {
     );
   }
 
-  Widget _buildTextField(String label, TextEditingController controller,
+  Widget buildTextField(String label, TextEditingController controller,
       {bool obscureText = false}) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,

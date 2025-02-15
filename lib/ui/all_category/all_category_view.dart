@@ -13,8 +13,6 @@ class CategoryPage extends StatelessWidget {
       body: Obx(() {
         if (categoryController.isLoading.value) {
           return Center(child: CircularProgressIndicator());
-        } else if (categoryController.errorMessage.isNotEmpty) {
-          return Center(child: Text(categoryController.errorMessage.value));
         } else if (categoryController.categories.isEmpty) {
           return Center(child: Text('No categories found.', style: TextStyle(fontSize: 18)));
         } else {

@@ -47,12 +47,14 @@ class CollegeService {
           },
         ),
       );
+      print("response.data ${response.statusCode}");
       if (response.statusCode == 200) {
         return CollegeModel.fromJson(response.data);
       } else {
         throw Exception('Failed to load college');
       }
     } catch (error) {
+      
       throw Exception('Error fetching college: $error');
     }
   }

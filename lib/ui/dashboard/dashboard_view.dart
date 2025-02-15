@@ -89,6 +89,13 @@ class DashboardView extends StatelessWidget {
                   isSelected: controller.selectedIndex.value == 11,
                   onTap: () => controller.onItemTapped(11),
                 )),
+                 Obx(() => buildNavigationItem(
+                  icon: Icons.add_chart,
+                  label: 'Generate Access Code',
+                  isSelected: controller.selectedIndex.value == 12,
+                  onTap: () => controller.onItemTapped(12),
+                )),
+                
               ],
             ),
           ),
@@ -125,6 +132,8 @@ class DashboardView extends StatelessWidget {
               const SizedBox(width: 8.0),
               Text(
                 label,
+                overflow: TextOverflow.fade,
+                maxLines: 2,
                 style: TextStyle(
                   color: isSelected ? Colors.green : Colors.grey,
                   fontWeight: isSelected ? FontWeight.normal : FontWeight.w400,

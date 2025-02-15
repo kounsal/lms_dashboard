@@ -51,6 +51,7 @@ class CategoryService {
         throw Exception('Failed to load category');
       }
     } catch (error) {
+      print("slcknekdnek");
       throw Exception('Error fetching category: $error');
     }
   }
@@ -69,8 +70,17 @@ class CategoryService {
           },
         ),
       );
+
       if (response.statusCode == 200) {
-        return (response.data as List).map((item) => CategoryModel.fromJson(item)).toList();
+        print(response.data);
+
+        var list = (response.data as List)
+            .map((item) => CategoryModel.fromJson(item))
+            .toList();
+        print("-----------------");
+        print(list.length);
+
+        return list;
       } else {
         throw Exception('Failed to load all categories');
       }

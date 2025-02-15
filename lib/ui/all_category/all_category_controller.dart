@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:get/get.dart';
 import 'package:lms_admin/data/model/category/category_model.dart';
 import 'package:lms_admin/data/services/categoryService.dart';
@@ -27,7 +29,11 @@ class CategoryController extends GetxController {
         await category.fetchColleges(_collegeService);
       }
       categories.assignAll(fetchedCategories);
+      print("Categories: $categories");
+      print(categories.length);
+      update();
     } catch (error) {
+      print(error);
       errorMessage('Error fetching categories');
     } finally {
       isLoading(false);
